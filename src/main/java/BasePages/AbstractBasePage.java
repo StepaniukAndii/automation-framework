@@ -11,7 +11,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 import java.util.List;
 
-//@Log4j
+@Log4j
 public abstract class AbstractBasePage {
     protected WebDriver driver;
     protected WebDriverWait wait;
@@ -19,7 +19,7 @@ public abstract class AbstractBasePage {
     protected AbstractBasePage(WebDriver driver) {
         this.driver = driver;
         wait = new WebDriverWait(driver, Duration.ofSeconds(15));
-//        log = LogManager.getLogger(this.getClass());
+        log = LogManager.getLogger(this.getClass());
     }
 
     protected WebElement waitToAppear(WebElement webElement) {
