@@ -1,2 +1,7 @@
 .idea
 target
+.DS_Store
+.allure/
+automation-framework.iml
+src/.DS_Store
+src/test/.DS_Store
