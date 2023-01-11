@@ -14,11 +14,9 @@ public class Retry implements IRetryAnalyzer {
     public boolean retry(ITestResult result) {
         if (initCount < maxRetryCount) {
             initCount++;
-            Log4j.error("Test " + result.getTestName() + " failed. Start attempt " + initCount);
+            Log.error("Test " + result.getTestName() + " failed. Start attempt " + initCount);
             return true;
         }
         return false;
     }
 }
-
-// to implement retry, write @Test(retryAnalyzer = Retry.class) before test
