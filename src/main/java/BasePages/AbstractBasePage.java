@@ -3,6 +3,7 @@ package BasePages;
 import lombok.extern.log4j.Log4j;
 import org.apache.logging.log4j.LogManager;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -15,11 +16,21 @@ import java.util.List;
 public abstract class AbstractBasePage {
     protected WebDriver driver;
     protected WebDriverWait wait;
+    protected JavascriptExecutor jse;
 
     protected AbstractBasePage(WebDriver driver) {
         this.driver = driver;
         wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+        jse = (JavascriptExecutor) driver;
         log = LogManager.getLogger(this.getClass());
+    }
+
+    protected void clickWithJS(WebElement field) {
+        jse.executeScript("arguments[0].click();", field);
+    }
+
+    protected void sendText(WebElement toSendText, String text) {
+        toSendText.sendKeys(text);
     }
 
     protected WebElement waitToAppear(WebElement webElement) {
