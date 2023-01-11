@@ -1,6 +1,5 @@
 import org.testng.IRetryAnalyzer;
 import org.testng.ITestResult;
-import org.testng.log4testng.Logger;
 
 import lombok.extern.log4j.Log4j;
 
@@ -14,7 +13,7 @@ public class Retry implements IRetryAnalyzer {
     public boolean retry(ITestResult result) {
         if (initCount < maxRetryCount) {
             initCount++;
-            Log.error("Test " + result.getTestName() + " failed. Start attempt " + initCount);
+            log.error("Test " + result.getTestName() + " failed. Start attempt " + initCount);
             return true;
         }
         return false;
