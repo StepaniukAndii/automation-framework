@@ -1,28 +1,32 @@
 package BasePages;
 
-import lombok.extern.log4j.Log4j;
-import org.apache.logging.log4j.LogManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 import java.util.List;
 
-@Log4j
 public abstract class AbstractBasePage {
     protected WebDriver driver;
     protected WebDriverWait wait;
     protected JavascriptExecutor jse;
+    protected Actions actions;
+
+    protected void scrollToElement(WebElement element) {
+        //Via Js executor
+        jse.executeScript("arguments[0].scrollIntoView(true);", element);
+    }
 
     protected AbstractBasePage(WebDriver driver) {
         this.driver = driver;
         wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+        actions = new Actions(driver);
         jse = (JavascriptExecutor) driver;
-        log = LogManager.getLogger(this.getClass());
     }
 
     protected void clickWithJS(WebElement field) {
