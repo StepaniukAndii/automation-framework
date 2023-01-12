@@ -21,6 +21,12 @@
     </properties>
 
     <build>
+        <testResources>
+            <testResource>
+                <directory>src/test/resources</directory>
+                <filtering>true</filtering>
+            </testResource>
+        </testResources>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -74,5 +80,20 @@
             <version>${log4j.version}</version>
         </dependency>
     </dependencies>
+
+    <profiles>
+        <profile>
+            <id>headless</id>
+            <properties>
+                <headless.mode>true</headless.mode>
+            </properties>
+        </profile>
+        <profile>
+            <id>grid</id>
+            <properties>
+                <grid>http://localhost:4444/wd/hub</grid>
+            </properties>
+        </profile>
+    </profiles>
 
 </project>
