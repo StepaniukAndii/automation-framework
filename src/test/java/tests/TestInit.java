@@ -26,7 +26,7 @@ public abstract class TestInit {
         log.info("---------- Finished set up driver --------------");
     }
 
-   @AfterMethod
+    @AfterMethod
     public void quitDriver() {
         driver.quit();
         log.info("----------- Driver quit -----------");
