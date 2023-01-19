@@ -3,7 +3,7 @@ package elements;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-import BasePages.AbstractBasePage;
+import basePages.AbstractBasePage;
 
 public class CustomerPageElements extends AbstractBasePage {
     protected CustomerPageElements(WebDriver driver) {
