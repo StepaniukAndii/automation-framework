@@ -18,7 +18,7 @@ public class CustomerLoginPage extends AbstractBasePage {
 
     @Override
     public CustomerLoginPage open() {
-        openUrl(env);
+        openUrl(env + "customer");
         return this;
     }
 
@@ -32,6 +32,9 @@ public class CustomerLoginPage extends AbstractBasePage {
     public WebElement loginBtn() {
         return waitClickableElementByXpath(CUSTOMER_LOGIN_BUTTON);
     }
+    public WebElement userSelection(){
+        return waitVisibleOfElement(USER_SELECT);
+    }
 
     @Step("Click on 'LOGIN' Btn")
     public CustomerLoginPage clickLoginBtn() {
@@ -43,5 +46,4 @@ public class CustomerLoginPage extends AbstractBasePage {
         user(customer).click();
         return this;
     }
-
 }
