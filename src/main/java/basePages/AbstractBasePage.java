@@ -1,4 +1,4 @@
-package BasePages;
+package basePages;
 
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
@@ -17,7 +17,7 @@ public abstract class AbstractBasePage {
     protected WebDriverWait wait;
     protected JavascriptExecutor jse;
     protected Actions actions;
-    public final String homePage = "https://www.globalsqa.com/angularJs-protractor/BankingProject/#/login";
+    public final String env = "https://www.globalsqa.com/angularJs-protractor/BankingProject/#/login";
 
     protected void scrollToElement(WebElement element) {
         //Via Js executor

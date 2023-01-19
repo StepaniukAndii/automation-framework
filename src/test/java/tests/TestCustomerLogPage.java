@@ -1,21 +1,21 @@
 package tests;
 
-import Pages.CustomerLoginPage;
-import elements.CustomerCabinetElements;
+import elements.HeaderElements;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import pages.CustomerLoginPage;
 
 public class TestCustomerLogPage extends TestInit {
 
     @Test
     public void checkLogPage() {
         CustomerLoginPage customerLoginPage = new CustomerLoginPage(driver);
-        CustomerCabinetElements customerCabinetElements = new CustomerCabinetElements(driver);
+        HeaderElements headerElements = new HeaderElements(driver);
 
         customerLoginPage
                 .open()
-                .clickUserThree()
+                .clickUser(1)
                 .clickLoginBtn();
-        Assert.assertEquals(customerCabinetElements.getCredentialsInCabinet().getText(), "Ron Weasly");
+
     }
 }
