@@ -1,7 +1,6 @@
 package pages;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 
 import elements.CustomerPageElements;
 
@@ -38,7 +37,8 @@ public class CustomerPage extends CustomerPageElements {
     public String getAccountCurrency() {
         return AccountCurrency().getText();
     }
-    public WebElement getAccountSelectField() {
-        return AccountSelectField();
+    public CustomerPage selectAccount(String accString) {
+        AccountSelectField().selectByVisibleText(accString);
+        return this;
     }
 }

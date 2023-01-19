@@ -2,6 +2,7 @@ package elements;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 
 import basePages.AbstractBasePage;
 
@@ -48,7 +49,7 @@ public class CustomerPageElements extends AbstractBasePage {
     public WebElement AccountCurrency() {
         return waitClickableElementByXpath(ACC_CUR);
     }
-    public WebElement AccountSelectField() {
-        return waitClickableElementByXpath(ACC_SEL);
+    public Select AccountSelectField() {
+        return (Select)waitClickableElementByXpath(ACC_SEL);
     }
 }
