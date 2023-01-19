@@ -9,32 +9,46 @@ public class CustomerPageElements extends AbstractBasePage {
     protected CustomerPageElements(WebDriver driver) {
         super(driver);
     }
+    private final static String TRANS_BUTT = "//button[@ng-class='btnClass1']";
+    private final static String DEP_BUTT = "//button[@ng-class='btnClass2']";
+    private final static String WITH_BUTT = "//button[@ng-class='btnClass3']";
+    private final static String LOGOUT_BUTT = "//button[@class='logout']";
+    private final static String NAME = "/html/body/div/div/div[2]/div/div[1]/strong/span";
+    private final static String ACC_NUM = "/html/body/div/div/div[2]/div/div[2]/strong[1]";
+    private final static String ACC_BAL = "/html/body/div/div/div[2]/div/div[2]/strong[2]";
+    private final static String ACC_CUR = "/html/body/div/div/div[2]/div/div[2]/strong[3]";
+    private final static String ACC_SEL = "//select[@id='accountSelect']";
     
+    @Override
+    public CustomerPageElements open() {
+        openUrl("https://www.globalsqa.com/angularJs-protractor/BankingProject/#/account");
+        return this;
+    }
     public WebElement TransactionButton() {
-        return waitClickableElementByXpath("//button[@ng-class='btnClass1']");
+        return waitClickableElementByXpath(TRANS_BUTT);
     }
     public WebElement DepositButton() {
-        return waitClickableElementByXpath("//button[@ng-class='btnClass2']");
+        return waitClickableElementByXpath(DEP_BUTT);
     }
     public WebElement WithdrawButton() {
-        return waitClickableElementByXpath("//button[@ng-class='btnClass3']");
+        return waitClickableElementByXpath(WITH_BUTT);
     }
     public WebElement LogoutButton() {
-        return waitClickableElementByXpath("//button[@class='logout']");
+        return waitClickableElementByXpath(LOGOUT_BUTT);
     }
     public WebElement Name() {
-        return waitClickableElementByXpath("/html/body/div/div/div[2]/div/div[1]/strong/span");
+        return waitClickableElementByXpath(NAME);
     }
     public WebElement AccountNumber() {
-        return waitClickableElementByXpath("/html/body/div/div/div[2]/div/div[2]/strong[1]");
+        return waitClickableElementByXpath(ACC_NUM);
     }
     public WebElement AccountBalance() {
-        return waitClickableElementByXpath("/html/body/div/div/div[2]/div/div[2]/strong[2]");
+        return waitClickableElementByXpath(ACC_BAL);
     }
     public WebElement AccountCurrency() {
-        return waitClickableElementByXpath("/html/body/div/div/div[2]/div/div[2]/strong[3]");
+        return waitClickableElementByXpath(ACC_CUR);
     }
     public WebElement AccountSelectField() {
-        return waitClickableElementByXpath("//select[@id='accountSelect']");
+        return waitClickableElementByXpath(ACC_SEL);
     }
 }

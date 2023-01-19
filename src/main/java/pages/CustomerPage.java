@@ -10,7 +10,6 @@ public class CustomerPage extends CustomerPageElements {
     protected CustomerPage(WebDriver driver) {
         super(driver);
     }
-    
     public CustomerPage clickTransactionButton() {
         TransactionButton().click();
         return this;
