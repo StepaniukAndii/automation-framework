@@ -1,5 +1,6 @@
-package BasePages;
+package basePages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -16,6 +17,7 @@ public abstract class AbstractBasePage {
     protected WebDriverWait wait;
     protected JavascriptExecutor jse;
     protected Actions actions;
+    public final String env = "https://www.globalsqa.com/angularJs-protractor/BankingProject/#/login";
 
     protected void scrollToElement(WebElement element) {
         //Via Js executor
@@ -61,4 +63,12 @@ public abstract class AbstractBasePage {
         return driver.findElements(By.xpath(xpath));
     }
 
+    public abstract <T> T open();
+
+    @Step("Open url {0}")
+    protected void openUrl(String url) {
+        if (!driver.getCurrentUrl().equals(url)) {
+            driver.get(url);
+        }
+    }
 }
