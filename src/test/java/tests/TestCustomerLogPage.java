@@ -16,6 +16,7 @@ public class TestCustomerLogPage extends TestInit {
                 .open()
                 .clickUser(1)
                 .clickLoginBtn();
+        Assert.assertEquals();
 
     }
 }

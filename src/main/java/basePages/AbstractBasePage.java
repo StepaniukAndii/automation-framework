@@ -17,7 +17,7 @@ public abstract class AbstractBasePage {
     protected WebDriverWait wait;
     protected JavascriptExecutor jse;
     protected Actions actions;
-    public final String env = "https://www.globalsqa.com/angularJs-protractor/BankingProject/#/login";
+    public final String env = "https://www.globalsqa.com/angularJs-protractor/BankingProject/#/";
 
     protected void scrollToElement(WebElement element) {
         //Via Js executor
