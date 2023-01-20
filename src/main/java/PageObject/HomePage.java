@@ -1,6 +1,6 @@
 package PageObject;
 
-import BasePages.AbstractBasePage;
+import basePages.AbstractBasePage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
@@ -24,13 +24,13 @@ public class HomePage extends AbstractBasePage {
         return waitClickableElementByXpath("//button[contains(text(),'Bank Manager Login')]");
     }
 
-    public ManagerLoginPage clickBankManagerLoginBtn() {
+    public HomePage clickBankManagerLoginBtn() {
         getBankManagerLoginBtn().click();
-        return new ManagerLoginPage(driver);
+        return this;
     }
 
-    public CustomerLoginPage clickCustomerLoginBtn() {
+    public HomePage clickCustomerLoginBtn() {
         getCustomerLoginBtn().click();
-        return new CustomerLoginPage(driver);
+        return this;
     }
 }
