@@ -2,11 +2,14 @@ package tests;
 
 import healper.DriverHelper;
 import lombok.extern.log4j.Log4j;
+import org.bouncycastle.jcajce.provider.symmetric.SEED;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 import utils.SiteConfig;
+
+import java.util.concurrent.TimeUnit;
 
 @Log4j
 public abstract class TestInit {

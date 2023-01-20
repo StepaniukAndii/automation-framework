@@ -17,16 +17,26 @@ public abstract class AbstractBasePage {
     protected JavascriptExecutor jse;
     protected Actions actions;
 
+    public final String env = "https://www.globalsqa.com/angularJs-protractor/BankingProject/#/";
+
     protected void scrollToElement(WebElement element) {
         //Via Js executor
         jse.executeScript("arguments[0].scrollIntoView(true);", element);
     }
+
+    public abstract <T> T open();
 
     protected AbstractBasePage(WebDriver driver) {
         this.driver = driver;
         wait = new WebDriverWait(driver, Duration.ofSeconds(15));
         actions = new Actions(driver);
         jse = (JavascriptExecutor) driver;
+    }
+
+    protected void openUrl(String url){
+        if(!driver.getCurrentUrl().equals(url)){
+            driver.get(url);
+        }
     }
 
     protected void clickWithJS(WebElement field) {
@@ -40,6 +50,7 @@ public abstract class AbstractBasePage {
     protected WebElement waitToAppear(WebElement webElement) {
         return wait.until(ExpectedConditions.visibilityOf(webElement));
     }
+
 
     protected WebElement waitVisibleOfElement(String locator) {
         return wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(locator)));
