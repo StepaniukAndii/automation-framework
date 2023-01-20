@@ -10,35 +10,35 @@ public class CustomerPage extends CustomerPageElements {
         super(driver);
     }
     public CustomerPage clickTransactionButton() {
-        TransactionButton().click();
+        transactionButton().click();
         return this;
     }
     public CustomerPage clickDepositButton() {
-        DepositButton().click();
+        depositButton().click();
         return this;
     }
     public CustomerPage clickWithdrawButton() {
-        WithdrawButton().click();
+        withdrawButton().click();
         return this;
     }
     public CustomerPage clickLogoutButton() {
-        LogoutButton().click();
+        logoutButton().click();
         return this;
     }
     public String getName() {
-        return Name().getText();
+        return name().getText();
     }
     public String getAccountNumber() {
-        return AccountNumber().getText();
+        return accountNumber().getText();
     }
     public String getAccountBalance() {
-        return AccountBalance().getText();
+        return accountBalance().getText();
     }
     public String getAccountCurrency() {
-        return AccountCurrency().getText();
+        return accountCurrency().getText();
     }
     public CustomerPage selectAccount(String accString) {
-        AccountSelectField().selectByVisibleText(accString);
+        accountSelectField().selectByVisibleText(accString);
         return this;
     }
 }
