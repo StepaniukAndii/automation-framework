@@ -23,6 +23,12 @@ public class CustomerPageElements extends AbstractBasePage {
     @Override
     public CustomerPageElements open() {
         openUrl("https://www.globalsqa.com/angularJs-protractor/BankingProject/#/account");
+        HomePage homePage = new HomePage(driver);
+        homePage
+                .open()
+                .clickBtnCustomerLogin()
+                .clickUser(1)
+                .clickloginBtn();
         return this;
     }
     public WebElement transactionButton() {
