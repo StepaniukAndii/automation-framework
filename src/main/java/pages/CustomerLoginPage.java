@@ -32,7 +32,8 @@ public class CustomerLoginPage extends AbstractBasePage {
     public WebElement loginBtn() {
         return waitClickableElementByXpath(CUSTOMER_LOGIN_BUTTON);
     }
-    public WebElement userSelection(){
+
+    public WebElement userSelection() {
         return waitVisibleOfElement(USER_SELECT);
     }
 
