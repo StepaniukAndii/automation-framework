@@ -15,27 +15,6 @@ public class TestHomePage extends TestInit {
         Assert.assertEquals(driver.getTitle(), "XYZ Bank");
     }
 
-
-    @Test
-    public void checkCustomerLoginBtn() {
-        new HomePage(driver)
-                .open()
-                .clickCustomerLoginBtn();
-
-        Assert.assertEquals(driver.getCurrentUrl(), "https://www.globalsqa.com/angularJs-protractor/BankingProject/#/customer");
-    }
-
-
-    @Test
-    public void checkBankManagerLoginBtn() {
-        new HomePage(driver)
-                .open()
-                .clickBankManagerLoginBtn();
-
-        Assert.assertEquals(driver.getCurrentUrl(), "https://www.globalsqa.com/angularJs-protractor/BankingProject/#/manager");
-
-    }
-
     @Test
     public void checkCustomerLoginBtn1() {
         new HomePage(driver)
@@ -50,8 +29,8 @@ public class TestHomePage extends TestInit {
     public void checkBankManagerLoginBtn1() {
         new HomePage(driver)
                 .open()
-                .clickBankManagerLoginBtn();
-       //       .addCustomerPage().isDisplayed();
+                .clickBankManagerLoginBtn()
+                .addCustomerPage().isDisplayed();
 
         Assert.assertEquals(driver.getCurrentUrl(), "https://www.globalsqa.com/angularJs-protractor/BankingProject/#/manager");
 
