@@ -51,4 +51,5 @@ public class CustomerTransactions extends AbstractBasePage {
         nextPageBtn().click();
         return this;
     }
+
 }

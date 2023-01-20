@@ -37,7 +37,11 @@ public abstract class TestInit {
     }
 
     public String getUrl(String url) {
-        new WebDriverWait(driver, Duration.ofSeconds(15)).until(ExpectedConditions.urlContains(url));
+        try {
+            new WebDriverWait(driver, Duration.ofSeconds(15)).until(ExpectedConditions.urlContains(url));
+        } catch (Exception e) {
+            log.error(e.getMessage());
+        }
         return driver.getCurrentUrl();
     }
 }
