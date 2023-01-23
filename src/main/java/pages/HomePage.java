@@ -1,9 +1,8 @@
-package PageObject;
+package pages;
 
 import basePages.AbstractBasePage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import pages.CustomerLoginPage;
 
 public class HomePage extends AbstractBasePage {
 
