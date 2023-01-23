@@ -3,6 +3,7 @@ package PageObject;
 import basePages.AbstractBasePage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import pages.CustomerLoginPage;
 
 public class HomePage extends AbstractBasePage {
 
@@ -24,13 +25,13 @@ public class HomePage extends AbstractBasePage {
         return waitClickableElementByXpath("//button[contains(text(),'Bank Manager Login')]");
     }
 
-    public HomePage clickBankManagerLoginBtn() {
+    public ManageLoginPage clickBankManagerLoginBtn() {
         getBankManagerLoginBtn().click();
-        return this;
+        return new ManageLoginPage(driver);
     }
 
-    public HomePage clickCustomerLoginBtn() {
+    public CustomerLoginPage clickCustomerLoginBtn() {
         getCustomerLoginBtn().click();
-        return this;
+        return new CustomerLoginPage(driver);
     }
 }
