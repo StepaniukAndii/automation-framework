@@ -20,5 +20,6 @@ public class TestAddCustomerBtn extends TestInit {
 
         Alert alert = driver.switchTo().alert();
         String alertText = alert.getText();
+        System.out.println(alertText);
     }
 }
