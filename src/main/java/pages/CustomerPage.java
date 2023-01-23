@@ -2,6 +2,7 @@ package pages;
 
 import org.openqa.selenium.WebDriver;
 
+import basePages.AbstractBasePage;
 import elements.CustomerPageElements;
 
 public class CustomerPage extends CustomerPageElements {
@@ -9,21 +10,21 @@ public class CustomerPage extends CustomerPageElements {
     protected CustomerPage(WebDriver driver) {
         super(driver);
     }
-    public CustomerPage clickTransactionButton() {
+    public AbstractBasePage clickTransactionButton() {
         transactionButton().click();
-        return this;
+        return new CustomerTransactions(driver);
     }
-    public CustomerPage clickDepositButton() {
+    public AbstractBasePage clickDepositButton() {
         depositButton().click();
-        return this;
-    }
-    public CustomerPage clickWithdrawButton() {
+        return new CustomerDepositPage(driver);
+    } 
+    public AbstractBasePage clickWithdrawButton() {
         withdrawButton().click();
-        return this;
+        return new CustomerWithdrawlPage(driver);
     }
-    public CustomerPage clickLogoutButton() {
+    public AbstractBasePage clickLogoutButton() {
         logoutButton().click();
-        return this;
+        return new CustomerLoginPage(driver);
     }
     public String getName() {
         return name().getText();
