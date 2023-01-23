@@ -12,7 +12,9 @@ public class ManagerOpenAccountPage extends AbstractBasePage {
     }
 
     private final static String SELECT_CUSTOMER = "//select[@name='userSelect']";
+    private final static String CUSTOMER_SELECT = "//select[@name='userSelect']/option[@value='%s']";
     private final static String SELECT_CURRENCY = "//select[@name='currency']";
+    private final static String CURRENCY_SELECT = "//select[@name='currency']/option[@value='%s']";
     private final static String PROGRESS_BUTTON = "//button[text()='Process']";
 
     @Override
@@ -30,11 +32,11 @@ public class ManagerOpenAccountPage extends AbstractBasePage {
     }
 
     public WebElement Customer(int customerName) {
-        return waitClickableElementByXpath("//option[@value='" + customerName + "']");
+        return waitClickableElementByXpath(String.format(CUSTOMER_SELECT, customerName));
     }
 
     public WebElement Currency(String currency) {
-        return waitClickableElementByXpath("//option[@value='" + currency + "']");
+        return waitClickableElementByXpath(String.format(CURRENCY_SELECT, currency));
     }
 
     public WebElement progressBtn() {
@@ -71,11 +73,8 @@ public class ManagerOpenAccountPage extends AbstractBasePage {
 
     }
 
-    public void alertMessagePrint() {
-        String alertMessage = driver.switchTo().alert().getText();
-        String[] splitted = alertMessage.split(":");
-        String account = splitted[1];
-        System.out.println(account);
+    public String getAlertMessagePrint() {
+        return driver.switchTo().alert().getText().split(":")[1];
     }
 
 }
