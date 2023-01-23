@@ -13,7 +13,7 @@ public class ManagerAddCustomerPage extends AbstractBasePage {
 
     @Override
     public ManagerAddCustomerPage open() {
-        openUrl(envmanager);
+        openUrl(env + "manager");
         return this;
     }
 
@@ -31,6 +31,7 @@ public class ManagerAddCustomerPage extends AbstractBasePage {
     public WebElement addCustomerBtn() {
         return waitClickableElementByXpath("//button[@ng-click = \"addCust()\"]");
     }
+
     public ManagerAddCustomerPage clickAddCustomerBtn() {
         addCustomerBtn().click();
         return this;
@@ -39,6 +40,7 @@ public class ManagerAddCustomerPage extends AbstractBasePage {
     public WebElement getFirstNameField() {
         return waitClickableElementByXpath("//input[@placeholder = \"First Name\"]");
     }
+
     public ManagerAddCustomerPage clickFirstName() {
         getFirstNameField().click();
         return this;
@@ -47,6 +49,7 @@ public class ManagerAddCustomerPage extends AbstractBasePage {
     public WebElement getLastName() {
         return waitClickableElementByXpath("//input[@placeholder = \"Last Name\"]");
     }
+
     public ManagerAddCustomerPage clickLastName() {
         getLastName().click();
         return this;
@@ -55,6 +58,7 @@ public class ManagerAddCustomerPage extends AbstractBasePage {
     public WebElement getPostCode() {
         return waitClickableElementByXpath("//input[@placeholder = \"Post Code\"]");
     }
+
     public ManagerAddCustomerPage clickPostCode() {
         getPostCode().click();
         return this;
@@ -63,6 +67,7 @@ public class ManagerAddCustomerPage extends AbstractBasePage {
     public WebElement addCustomerSubmit() {
         return waitClickableElementByXpath("//button[@type = \"submit\"]");
     }
+
     public ManagerAddCustomerPage clickAddCustSubmit() {
         addCustomerSubmit().click();
         return this;
