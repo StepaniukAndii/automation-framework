@@ -3,10 +3,14 @@ package tests;
 import healper.DriverHelper;
 import lombok.extern.log4j.Log4j;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 import utils.SiteConfig;
+
+import java.time.Duration;
 
 @Log4j
 public abstract class TestInit {
@@ -30,6 +34,15 @@ public abstract class TestInit {
     public void quitDriver() {
         driver.quit();
         log.info("----------- Driver quit -----------");
+    }
+
+    public String getUrl(String url) {
+        try {
+            new WebDriverWait(driver, Duration.ofSeconds(15)).until(ExpectedConditions.urlContains(url));
+        } catch (Exception e) {
+            log.error(e.getMessage());
+        }
+        return driver.getCurrentUrl();
     }
 }
 
