@@ -21,10 +21,28 @@ public class ManageLoginPage extends AbstractBasePage {
         return waitClickableElementByXpath("//button[@ng-click='addCust()']");
     }
 
+    public WebElement getManagerOpenAccountBtn() {
+        return waitClickableElementByXpath("//button[@ng-click='openAccount()']");
+
+    }
+
+    public WebElement getManagerCustomerBtn(){
+        return waitClickableElementByXpath("//button[@ng-click='showCust()']");
+    }
+
+
+
     @Step("Click add customer button")
     public ManagerAddCustomerPage clickAddCustomerBtn() {
         getAddCustomerBtn().click();
         return new ManagerAddCustomerPage(driver);
     }
+
+    public ManagerOpenAccountPage clickOpenAccountBtn() {
+        getManagerOpenAccountBtn().click();
+        return new ManagerOpenAccountPage(driver);
+    }
+
+
 }
 
