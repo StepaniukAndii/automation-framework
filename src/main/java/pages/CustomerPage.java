@@ -65,8 +65,4 @@ public class CustomerPage extends CustomerPageElements {
         accountSelectField().selectByVisibleText(accString);
         return this;
     }
-
-    public CustomerWithdrawlPage clickWithdrawlBtn() {
-        return new CustomerWithdrawlPage(driver);
-    }
 }

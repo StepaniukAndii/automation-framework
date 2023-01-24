@@ -18,7 +18,7 @@ public class CustomerWithdrawlPage extends AbstractBasePage {
     }
 
     public CustomerWithdrawlPage openByUser(String user) {
-        new CustomerPage(driver).openByUser(user).clickWithdrawlBtn();
+        new CustomerPage(driver).openByUser(user).clickWithdrawButton();
         return this;
     }
 

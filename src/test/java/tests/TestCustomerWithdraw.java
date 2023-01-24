@@ -9,11 +9,13 @@ import pages.CustomerWithdrawlPage;
 @Log4j
 public class TestCustomerWithdraw extends TestInit {
 
+    private final String user = "Ron Weasly";
+
     @Test
-    public void testWithdrawlPageElements() {
+    public void verifyWithdraw() {
         CustomerWithdrawlPage customerWithdrawlPage = new CustomerWithdrawlPage(driver);
 
-        customerWithdrawlPage.openByUser("Ron Weasly");
+        customerWithdrawlPage.openByUser(user);
 
         Assert.assertTrue(customerWithdrawlPage.labelWithdrawl().isDisplayed(), "Assert is fail");
         Assert.assertTrue(customerWithdrawlPage.inputWithdrawl().isDisplayed(), "Assert is fail");
@@ -23,13 +25,16 @@ public class TestCustomerWithdraw extends TestInit {
     }
 
     @Test
-    public void testWithdrawlPage() {
+    public void checkWithdraw() {
         CustomerWithdrawlPage customerWithdrawlPage = new CustomerWithdrawlPage(driver);
 
-//        customerWithdrawlPage
-//                .goToWithdrawlPage()
-//                .enterInputWithdrawl("10")
-//                .clickButtonWithdrawl();
+        customerWithdrawlPage.openByUser(user);
+
+
+
+        customerWithdrawlPage
+                .enterInputWithdrawl("10")
+                .clickButtonWithdrawl();
 
         Assert.assertTrue(customerWithdrawlPage.messageWithdrawl().isDisplayed(), "Assert is fail");
     }

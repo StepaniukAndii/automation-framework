@@ -14,8 +14,7 @@ public class TestManagerOpenAccount extends TestInit {
     public void verifyManagerOpenAccount() {
         ManagerOpenAccountPage managerOpenAccountPage = new ManagerOpenAccountPage(driver);
 
-//        managerOpenAccountPage
-//                .goToManagerOpenAccountPage();
+        managerOpenAccountPage.open();
 
         Assert.assertTrue(managerOpenAccountPage.selectCustomer().isDisplayed(), "Assert is fail");
         Assert.assertTrue(managerOpenAccountPage.selectCurrency().isDisplayed(), "Assert is fail");
