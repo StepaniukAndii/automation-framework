@@ -7,6 +7,7 @@ import org.openqa.selenium.WebElement;
 
 public class ManagerAddCustomerPage extends AbstractBasePage {
 
+
     public ManagerAddCustomerPage(WebDriver driver) {
         super(driver);
     }
