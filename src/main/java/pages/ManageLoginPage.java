@@ -41,15 +41,20 @@ public class ManageLoginPage extends AbstractBasePage {
         getAddCustomerBtn().click();
         return new ManagerAddCustomerPage(driver);
     }
-
+@Step("Click manager open account page")
     public ManagerOpenAccountPage clickOpenAccountBtn() {
         getManagerOpenAccountBtn().click();
         return new ManagerOpenAccountPage(driver);
     }
-
+@Step("Click Home Button Page")
   public HomePage clickHomeBtn(){
         headerElements.getHomeBtn().click();
         return new HomePage(driver);
+  }
+@Step("Click openCustomerPage")
+  public ManagerCustomersPage clickOpenCustomerPage(){
+      getManagerCustomerBtn().click();
+      return new ManagerCustomersPage(driver);
   }
 }
 
