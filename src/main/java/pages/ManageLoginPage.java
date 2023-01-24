@@ -27,34 +27,34 @@ public class ManageLoginPage extends AbstractBasePage {
 
     public WebElement getManagerOpenAccountBtn() {
         return waitClickableElementByXpath("//button[@ng-click='openAccount()']");
-
     }
 
-    public WebElement getManagerCustomerBtn(){
+    public WebElement getManagerCustomerBtn() {
         return waitClickableElementByXpath("//button[@ng-click='showCust()']");
     }
-
-
 
     @Step("Click add customer button")
     public ManagerAddCustomerPage clickAddCustomerBtn() {
         getAddCustomerBtn().click();
         return new ManagerAddCustomerPage(driver);
     }
-@Step("Click manager open account page")
+
+    @Step("Click manager open account page")
     public ManagerOpenAccountPage clickOpenAccountBtn() {
         getManagerOpenAccountBtn().click();
         return new ManagerOpenAccountPage(driver);
     }
-@Step("Click Home Button Page")
-  public HomePage clickHomeBtn(){
+
+    @Step("Click Home Button Page")
+    public HomePage clickHomeBtn() {
         headerElements.getHomeBtn().click();
         return new HomePage(driver);
-  }
-@Step("Click openCustomerPage")
-  public ManagerCustomersPage clickOpenCustomerPage(){
-      getManagerCustomerBtn().click();
-      return new ManagerCustomersPage(driver);
-  }
+    }
+
+    @Step("Click openCustomerPage")
+    public ManagerCustomersPage clickOpenCustomerPage() {
+        getManagerCustomerBtn().click();
+        return new ManagerCustomersPage(driver);
+    }
 }
 
