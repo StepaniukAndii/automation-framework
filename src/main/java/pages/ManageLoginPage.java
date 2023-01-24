@@ -1,11 +1,14 @@
 package pages;
 
 import basePages.AbstractBasePage;
+import elements.HeaderElements;
 import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 public class ManageLoginPage extends AbstractBasePage {
+
+    public HeaderElements headerElements;
 
     protected ManageLoginPage(WebDriver driver) {
         super(driver);
@@ -14,6 +17,7 @@ public class ManageLoginPage extends AbstractBasePage {
     @Override
     public ManageLoginPage open() {
         openUrl(env + "manager");
+        headerElements = new HeaderElements(driver);
         return this;
     }
 
@@ -43,6 +47,9 @@ public class ManageLoginPage extends AbstractBasePage {
         return new ManagerOpenAccountPage(driver);
     }
 
-
+  public HomePage clickHomeBtn(){
+        headerElements.getHomeBtn().click();
+        return new HomePage(driver);
+  }
 }
 
