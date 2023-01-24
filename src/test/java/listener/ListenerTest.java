@@ -1,8 +1,6 @@
 
 package listener;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
-import io.github.bonigarcia.wdm.managers.ChromeDriverManager;
 import io.qameta.allure.Attachment;
 import lombok.extern.log4j.Log4j;
 import org.openqa.selenium.OutputType;

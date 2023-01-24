@@ -18,10 +18,6 @@
         <lombok.version>1.18.24</lombok.version>
         <log4j.version>1.2.17</log4j.version>
         <surefire.plugin.version>3.0.0-M7</surefire.plugin.version>
-        <maven-surefire-plugin.version>2.20.1</maven-surefire-plugin.version>
-        <aspectj.version>1.8.10</aspectj.version>
-        <allure-junit4.version>2.6.0</allure-junit4.version>
-
     </properties>
 
     <build>
@@ -83,18 +79,11 @@
             <artifactId>log4j</artifactId>
             <version>${log4j.version}</version>
         </dependency>
-
-        <!-- https://mvnrepository.com/artifact/ru.yandex.qatools.ashot/ashot -->
-        <dependency>
-            <groupId>ru.yandex.qatools.ashot</groupId>
-            <artifactId>ashot</artifactId>
-            <version>1.5.4</version>
-        </dependency>
-
+        <!-- https://mvnrepository.com/artifact/io.qameta.allure/allure-testng -->
         <dependency>
             <groupId>io.qameta.allure</groupId>
-            <artifactId>allure-junit4</artifactId>
-            <version>${allure-junit4.version}</version>
+            <artifactId>allure-testng</artifactId>
+            <version>2.20.1</version>
         </dependency>
 
     </dependencies>
