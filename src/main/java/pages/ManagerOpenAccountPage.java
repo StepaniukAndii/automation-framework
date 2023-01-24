@@ -61,16 +61,6 @@ public class ManagerOpenAccountPage extends AbstractBasePage {
 
     }
 
-    public ManagerOpenAccountPage goToManagerOpenAccountPage() {
-        HomePage homePage = new HomePage(driver);
-        homePage
-                .open()
-                .clickBtnBankManagerLogin()
-                .clickOpenAccountsBtn();
-        return new ManagerOpenAccountPage(driver);
-
-    }
-
     public void alertMessagePrint() {
         String alertMessage = driver.switchTo().alert().getText();
         String[] splitted = alertMessage.split(":");

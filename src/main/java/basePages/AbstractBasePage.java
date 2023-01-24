@@ -18,7 +18,7 @@ public abstract class AbstractBasePage {
     protected JavascriptExecutor jse;
     protected Actions actions;
 
-    public final String env = "https://www.globalsqa.com/angularJs-protractor/BankingProject/#/";
+    public static final String env = "https://www.globalsqa.com/angularJs-protractor/BankingProject/#/";
 
     protected void scrollToElement(WebElement element) {
         //Via Js executor

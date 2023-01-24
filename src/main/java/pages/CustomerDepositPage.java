@@ -6,6 +6,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 public class CustomerDepositPage extends AbstractBasePage {
+
+    private HeaderElements headerElements;
+
     protected CustomerDepositPage(WebDriver driver) {
         super(driver);
     }
@@ -16,8 +19,17 @@ public class CustomerDepositPage extends AbstractBasePage {
         return this;
     }
 
+    public CustomerDepositPage openByUser(String user) {
+        new CustomerPage(driver).openByUser(user).clickDepositButton();
+        return this;
+    }
+
     public HeaderElements getHeaderElements() {
-        return new HeaderElements(driver);
+        if (headerElements == null) {
+            return headerElements = new HeaderElements(driver);
+        } else {
+            return headerElements;
+        }
     }
 
     private final static String LABEL_AMOUNT_DEPOSIT = "//label";

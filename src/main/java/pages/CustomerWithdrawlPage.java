@@ -13,10 +13,14 @@ public class CustomerWithdrawlPage extends AbstractBasePage {
 
     @Override
     public CustomerWithdrawlPage open() {
-        openUrl(env);
+        openUrl(env + "account");
         return this;
     }
 
+    public CustomerWithdrawlPage openByUser(String user) {
+        new CustomerPage(driver).openByUser(user).clickWithdrawButton();
+        return this;
+    }
 
     private final static String LABEL_WITHDRAWL = "//label[text()='Amount to be Withdrawn :']";
     private final static String INPUT_WITHDRAWL = "//input[@ng-model='amount']";
@@ -48,16 +52,5 @@ public class CustomerWithdrawlPage extends AbstractBasePage {
     public CustomerWithdrawlPage clickButtonWithdrawl() {
         buttonWithdrawl().click();
         return this;
-    }
-
-    public CustomerWithdrawlPage goToWithdrawlPage() {
-        HomePage homePage = new HomePage(driver);
-        homePage
-                .open()
-                .clickBtnCustomerLogin()
-                .clickUser(1)
-                .clickloginBtn()
-                .clickWithdrawlBtn();
-        return new CustomerWithdrawlPage(driver);
     }
 }

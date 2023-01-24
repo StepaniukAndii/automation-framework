@@ -7,19 +7,17 @@ import org.testng.annotations.Test;
 import pages.ManagerOpenAccountPage;
 
 @Log4j
-public class TestManagerOpenAccountPage extends TestInit {
+public class TestManagerOpenAccount extends TestInit {
 
 
     @Test
-    public void testManagerOpenAccountPageElements() {
+    public void verifyManagerOpenAccount() {
         ManagerOpenAccountPage managerOpenAccountPage = new ManagerOpenAccountPage(driver);
-        log.info("--------------------go to Open account Page--------------------");
-        managerOpenAccountPage
-                .goToManagerOpenAccountPage();
-        log.info("--------------------check elements on page--------------------");
+
+        managerOpenAccountPage.open();
+
         Assert.assertTrue(managerOpenAccountPage.selectCustomer().isDisplayed(), "Assert is fail");
         Assert.assertTrue(managerOpenAccountPage.selectCurrency().isDisplayed(), "Assert is fail");
         Assert.assertTrue(managerOpenAccountPage.progressBtn().isDisplayed(), "Assert is fail");
-
     }
 }
