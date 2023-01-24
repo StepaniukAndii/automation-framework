@@ -8,7 +8,9 @@
 
     <test name="Regression test">
         <classes>
-            <class name=""/>
+            <class name="tests.TestCustomerLogPage"/>
+            <class name="tests.TestCustomerWithdraw"/>
+            <class name="tests.TestManagerOpenAccount"/>
         </classes>
     </test>
 </suite>
