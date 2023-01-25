@@ -1,9 +1,10 @@
 package pages;
 
 import basePages.AbstractBasePage;
+import lombok.extern.log4j.Log4j;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-
+@Log4j
 public class HomePage extends AbstractBasePage {
 
     public HomePage(WebDriver driver) {
@@ -25,11 +26,13 @@ public class HomePage extends AbstractBasePage {
     }
 
     public ManageLoginPage clickBankManagerLoginBtn() {
+        log.info("====================Use clickBankManagerLoginBtn====================");
         getBankManagerLoginBtn().click();
         return new ManageLoginPage(driver);
     }
 
     public CustomerLoginPage clickCustomerLoginBtn() {
+        log.info("====================Use clickCustomerLoginBt====================");
         getCustomerLoginBtn().click();
         return new CustomerLoginPage(driver);
     }

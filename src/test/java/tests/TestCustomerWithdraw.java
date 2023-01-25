@@ -4,12 +4,15 @@ package tests;
 import lombok.extern.log4j.Log4j;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import pages.CustomerDepositPage;
+import pages.CustomerPage;
 import pages.CustomerWithdrawlPage;
 
 @Log4j
 public class TestCustomerWithdraw extends TestInit {
 
-    private final String user = "Ron Weasly";
+    private final String user = "Neville Longbottom";
+    private final String MESSAGE_WITHDRAW = "Transaction successful";
 
     @Test
     public void verifyWithdraw() {
@@ -26,16 +29,26 @@ public class TestCustomerWithdraw extends TestInit {
 
     @Test
     public void checkWithdraw() {
+
+
+        CustomerDepositPage customerDepositPage = new CustomerDepositPage(driver);
+        customerDepositPage
+                .openByUser(user)
+                .setAmount(100)
+                .clickDepositBtn();
+
+
         CustomerWithdrawlPage customerWithdrawlPage = new CustomerWithdrawlPage(driver);
-
-        customerWithdrawlPage.openByUser(user);
-
-
-
         customerWithdrawlPage
+                .openByUser(user)
                 .enterInputWithdrawl("10")
                 .clickButtonWithdrawl();
 
-        Assert.assertTrue(customerWithdrawlPage.messageWithdrawl().isDisplayed(), "Assert is fail");
+        Assert.assertTrue(customerWithdrawlPage.messageWithdrawl().isDisplayed(), "assert is fail");
+        Assert.assertEquals(customerWithdrawlPage.messageWithdrawl().getText(),MESSAGE_WITHDRAW, "assert is fail" );
+
+
+
+
     }
 }

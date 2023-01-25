@@ -9,7 +9,7 @@ public class CustomerDepositPage extends AbstractBasePage {
 
     private HeaderElements headerElements;
 
-    protected CustomerDepositPage(WebDriver driver) {
+    public CustomerDepositPage(WebDriver driver) {
         super(driver);
     }
 

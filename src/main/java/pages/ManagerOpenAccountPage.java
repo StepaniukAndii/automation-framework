@@ -1,9 +1,12 @@
 package pages;
 
 import basePages.AbstractBasePage;
+import io.qameta.allure.Step;
+import lombok.extern.log4j.Log4j;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-
+import org.openqa.selenium.support.ui.Select;
+@Log4j
 public class ManagerOpenAccountPage extends AbstractBasePage {
 
 
@@ -17,24 +20,20 @@ public class ManagerOpenAccountPage extends AbstractBasePage {
 
     @Override
     public ManagerOpenAccountPage open() {
-        openUrl(env);
+        openUrl(env + "manager/openAccount");
         return this;
     }
 
-    public WebElement selectCustomer() {
-        return waitVisibleOfElement(SELECT_CUSTOMER);
+    @Step("Select account {0}")
+    public ManagerOpenAccountPage selectCustomer(String account) {
+        new Select(waitVisibleOfElement(SELECT_CUSTOMER)).selectByVisibleText(account);
+        return this;
     }
 
-    public WebElement selectCurrency() {
-        return waitVisibleOfElement(SELECT_CURRENCY);
-    }
-
-    public WebElement Customer(int customerName) {
-        return waitClickableElementByXpath("//option[@value='" + customerName + "']");
-    }
-
-    public WebElement Currency(String currency) {
-        return waitClickableElementByXpath("//option[@value='" + currency + "']");
+    @Step("Select currency {1}")
+    public ManagerOpenAccountPage selectCurrency(String currency) {
+        new Select(waitVisibleOfElement(SELECT_CURRENCY)).selectByVisibleText(currency);
+        return this;
     }
 
     public WebElement progressBtn() {
@@ -43,29 +42,17 @@ public class ManagerOpenAccountPage extends AbstractBasePage {
 
     //HELP METHODS
 
-    public ManagerOpenAccountPage selectCustomerName(int customerName) {
-        Customer(customerName).click();
-        return this;
-
-    }
-
-    public ManagerOpenAccountPage selectCurrency(String currency) {
-        Currency(currency).click();
-        return this;
-
-    }
-
     public ManagerOpenAccountPage clickProgressBtn() {
+        log.info("---------------------click Progress Button---------------------");
         progressBtn().click();
         return this;
 
     }
 
-    public void alertMessagePrint() {
-        String alertMessage = driver.switchTo().alert().getText();
-        String[] splitted = alertMessage.split(":");
-        String account = splitted[1];
-        System.out.println(account);
+    public String alertMessagePrint() {
+        log.info("---------------------alert message---------------------");
+        return driver.switchTo().alert().getText().split(":")[1];
+
     }
 
 }
