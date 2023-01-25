@@ -14,7 +14,7 @@ public class ManagerAddCustomerPage extends AbstractBasePage {
 
     @Override
     public ManagerAddCustomerPage open() {
-        openUrl(env + "manager");
+        openUrl(env + "manager/addCust");
         return this;
     }
 
@@ -26,15 +26,7 @@ public class ManagerAddCustomerPage extends AbstractBasePage {
         getFirstNameField().sendKeys(firstName);
         getLastName().sendKeys(lastName);
         getPostCode().sendKeys(postCode);
-        return this;
-    }
-
-    public WebElement addCustomerBtn() {
-        return waitClickableElementByXpath("//button[@ng-click = \"addCust()\"]");
-    }
-
-    public ManagerAddCustomerPage clickAddCustomerBtn() {
-        addCustomerBtn().click();
+        addCustomerSubmit().click();
         return this;
     }
 
@@ -42,35 +34,15 @@ public class ManagerAddCustomerPage extends AbstractBasePage {
         return waitClickableElementByXpath("//input[@placeholder = \"First Name\"]");
     }
 
-    public ManagerAddCustomerPage clickFirstName() {
-        getFirstNameField().click();
-        return this;
-    }
-
     public WebElement getLastName() {
         return waitClickableElementByXpath("//input[@placeholder = \"Last Name\"]");
-    }
-
-    public ManagerAddCustomerPage clickLastName() {
-        getLastName().click();
-        return this;
     }
 
     public WebElement getPostCode() {
         return waitClickableElementByXpath("//input[@placeholder = \"Post Code\"]");
     }
 
-    public ManagerAddCustomerPage clickPostCode() {
-        getPostCode().click();
-        return this;
-    }
-
     public WebElement addCustomerSubmit() {
         return waitClickableElementByXpath("//button[@type = \"submit\"]");
-    }
-
-    public ManagerAddCustomerPage clickAddCustSubmit() {
-        addCustomerSubmit().click();
-        return this;
     }
 }
