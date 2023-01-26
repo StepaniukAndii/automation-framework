@@ -5,15 +5,22 @@ import elements.HeaderElements;
 import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 
 public class CustomerLoginPage extends AbstractBasePage {
+
+    private HeaderElements headerElements;
 
     public CustomerLoginPage(WebDriver driver) {
         super(driver);
     }
 
     public HeaderElements getHeaderElements() {
-        return new HeaderElements(driver);
+        if (headerElements == null) {
+           return headerElements = new HeaderElements(driver);
+        } else {
+            return headerElements;
+        }
     }
 
     @Override
@@ -25,26 +32,19 @@ public class CustomerLoginPage extends AbstractBasePage {
     private final static String USER_SELECT = "//select[@name='userSelect']";
     private final static String CUSTOMER_LOGIN_BUTTON = "//button[text()='Login']";
 
-    public WebElement user(int customer) {
-        return waitClickableElementByXpath("//option[@value='" + customer + "']");
-    }
-
     public WebElement loginBtn() {
         return waitClickableElementByXpath(CUSTOMER_LOGIN_BUTTON);
     }
 
-    public WebElement userSelection() {
-        return waitVisibleOfElement(USER_SELECT);
+    @Step("Select user {0}")
+    public CustomerLoginPage selectUser(String customer) {
+        new Select(waitVisibleOfElement(USER_SELECT)).selectByVisibleText(customer);
+        return this;
     }
 
     @Step("Click on 'LOGIN' Btn")
-    public CustomerLoginPage clickLoginBtn() {
+    public CustomerPage clickLoginBtn() {
         loginBtn().click();
-        return this;
-    }
-
-    public CustomerLoginPage clickUser(int customer) {
-        user(customer).click();
-        return this;
+        return new CustomerPage(driver);
     }
 }

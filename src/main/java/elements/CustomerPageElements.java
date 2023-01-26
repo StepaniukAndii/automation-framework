@@ -5,11 +5,13 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
 import basePages.AbstractBasePage;
+import pages.HomePage;
 
-public class CustomerPageElements extends AbstractBasePage {
+public abstract class CustomerPageElements extends AbstractBasePage {
     protected CustomerPageElements(WebDriver driver) {
         super(driver);
     }
+
     private final static String TRANS_BUTT = "//button[@ng-class='btnClass1']";
     private final static String DEP_BUTT = "//button[@ng-class='btnClass2']";
     private final static String WITH_BUTT = "//button[@ng-class='btnClass3']";
@@ -19,43 +21,41 @@ public class CustomerPageElements extends AbstractBasePage {
     private final static String ACC_BAL = "//div[contains(@class, 'center')]/strong[position()=2]";
     private final static String ACC_CUR = "//div[contains(@class, 'center')]/strong[position()=3]";
     private final static String ACC_SEL = "//select[@id='accountSelect']";
-    
-    @Override
-    public CustomerPageElements open() {
-        openUrl("https://www.globalsqa.com/angularJs-protractor/BankingProject/#/account");
-        HomePage homePage = new HomePage(driver);
-        homePage
-                .open()
-                .clickBtnCustomerLogin()
-                .clickUser(1)
-                .clickloginBtn();
-        return this;
-    }
+
+
     public WebElement transactionButton() {
         return waitClickableElementByXpath(TRANS_BUTT);
     }
+
     public WebElement depositButton() {
         return waitClickableElementByXpath(DEP_BUTT);
     }
+
     public WebElement withdrawButton() {
         return waitClickableElementByXpath(WITH_BUTT);
     }
+
     public WebElement logoutButton() {
         return waitClickableElementByXpath(LOGOUT_BUTT);
     }
+
     public WebElement name() {
         return waitClickableElementByXpath(NAME);
     }
+
     public WebElement accountNumber() {
         return waitClickableElementByXpath(ACC_NUM);
     }
+
     public WebElement accountBalance() {
         return waitClickableElementByXpath(ACC_BAL);
     }
+
     public WebElement accountCurrency() {
         return waitClickableElementByXpath(ACC_CUR);
     }
+
     public Select accountSelectField() {
-        return (Select)waitClickableElementByXpath(ACC_SEL);
+        return (Select) waitClickableElementByXpath(ACC_SEL);
     }
 }

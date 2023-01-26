@@ -36,7 +36,7 @@ public class DriverHelper {
     private static ChromeOptions getOptions() {
         ChromeOptions options = new ChromeOptions();
         if (headless.equals("true")) {
-            new ChromeOptions().setHeadless(true);
+            options.addArguments("--headless");
         }
         return options;
     }

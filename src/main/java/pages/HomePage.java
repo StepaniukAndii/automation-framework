@@ -7,9 +7,9 @@ import org.openqa.selenium.WebElement;
 public class HomePage extends AbstractBasePage {
 
     public HomePage(WebDriver driver) {
-
         super(driver);
     }
+
     @Override
     public HomePage open() {
         openUrl(env + "login");

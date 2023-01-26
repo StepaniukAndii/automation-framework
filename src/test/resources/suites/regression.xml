@@ -1,9 +1,16 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
 
 <suite name="Regression suite">
+
+    <listeners>
+        <listener class-name="listener.ListenerTest"/>
+    </listeners>
+
     <test name="Regression test">
         <classes>
-            <class name=""/>
+            <class name="tests.TestCustomerLogPage"/>
+            <class name="tests.TestCustomerWithdraw"/>
+            <class name="tests.TestManagerOpenAccount"/>
         </classes>
     </test>
 </suite>
