@@ -26,6 +26,7 @@ public class ManagerCustomersPage extends AbstractBasePage {
     public WebElement firstCustomerName() {
         return waitVisibleOfElement(FIRST_NAME);
     }
+
     public WebElement lastCustomerName() {
         return waitVisibleOfElement(LAST_NAME);
     }
@@ -33,21 +34,23 @@ public class ManagerCustomersPage extends AbstractBasePage {
     public WebElement postCode() {
         return waitVisibleOfElement(POST_CODE);
     }
+
     public WebElement accNumber() {
         return waitVisibleOfElement(ACCOUNT_NUMBER);
     }
 
 
     public ManagerCustomersPage searchCustomerByFirstName(String name) {
-            sendText(firstCustomerName(), name);
-            return this;
-        }
+        sendText(firstCustomerName(), name);
+        return this;
+    }
 
 
     public ManagerCustomersPage searchCustomerByLastName(String name1) {
         sendText(lastCustomerName(), name1);
         return this;
     }
+
     public ManagerCustomersPage searchCustomerByPostIndex(String postIndex) {
         sendText(postCode(), postIndex);
         return this;
