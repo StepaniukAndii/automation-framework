@@ -7,7 +7,7 @@ import elements.CustomerPageElements;
 
 public class CustomerPage extends CustomerPageElements {
 
-    protected CustomerPage(WebDriver driver) {
+    public CustomerPage(WebDriver driver) {
         super(driver);
     }
 
