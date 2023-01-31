@@ -9,7 +9,7 @@ public class CustomerDepositPage extends AbstractBasePage {
 
     private HeaderElements headerElements;
 
-    protected CustomerDepositPage(WebDriver driver) {
+    public CustomerDepositPage(WebDriver driver) {
         super(driver);
     }
 
@@ -35,6 +35,7 @@ public class CustomerDepositPage extends AbstractBasePage {
     private final static String LABEL_AMOUNT_DEPOSIT = "//label";
     private final static String AMOUNT_SELECT = "//input[@type='number']";
     private final static String DEPOSIT_BTN = "//button[@type='submit']";
+    private final static String DEPOSIT_MESSAGE = "//div[@class='ng-scope']/span[@ng-show='message']";
 
     public WebElement getAmountLabelDeposit() {
         return waitVisibleOfElement(LABEL_AMOUNT_DEPOSIT);
@@ -48,13 +49,24 @@ public class CustomerDepositPage extends AbstractBasePage {
         return waitClickableElementByXpath(DEPOSIT_BTN);
     }
 
+    public WebElement depositMessage() {
+        return waitVisibleOfElement(DEPOSIT_MESSAGE);
+    }
+
     public CustomerDepositPage setAmount(int baksu) {
         amountSelect().sendKeys(String.valueOf(baksu));
         return this;
+    }
+
+    public String setDepositMessage() {
+        return depositMessage().getText();
+
     }
 
     public CustomerDepositPage clickDepositBtn() {
         depositBtn().click();
         return this;
     }
+
+
 }
