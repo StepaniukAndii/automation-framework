@@ -62,9 +62,7 @@ public class CustomerPage extends CustomerPageElements {
     }
 
     public CustomerPage selectAccount(String accString) {
-        new Select(waitVisibleOfElement(ACC_SEL)).selectByVisibleText(accString);
+        new Select(accountSelectField()).selectByVisibleText(accString);
         return this;
     }
-
-    public int balance;
 }
