@@ -61,4 +61,12 @@ public class ManagerOpenAccountPage extends AbstractBasePage {
         return new ManagerOpenAccountPage(driver);
     }
 
+    public ManageLoginPage openAccount(String customer, String currency){
+        selectCustomer(customer);
+        selectCurrency(currency);
+        clickProgressBtn();
+        alertMessage();
+        return new ManageLoginPage(driver);
+    }
+
 }
