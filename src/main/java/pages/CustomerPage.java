@@ -66,5 +66,4 @@ public class CustomerPage extends CustomerPageElements {
         return this;
     }
 
-    public int balance;
 }
