@@ -8,7 +8,7 @@
 
     <test name="Smoke test">
         <classes>
-            <class name=""/>
+            <class name="tests.TestCustomerWithdraw"/>
         </classes>
     </test>
 </suite>
