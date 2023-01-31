@@ -1,9 +1,8 @@
 package pages;
 
-import org.openqa.selenium.WebDriver;
-
-import basePages.AbstractBasePage;
 import elements.CustomerPageElements;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.Select;
 
 public class CustomerPage extends CustomerPageElements {
 
@@ -25,22 +24,22 @@ public class CustomerPage extends CustomerPageElements {
         return this;
     }
 
-    public AbstractBasePage clickTransactionButton() {
+    public CustomerTransactions clickTransactionButton() {
         transactionButton().click();
         return new CustomerTransactions(driver);
     }
 
-    public AbstractBasePage clickDepositButton() {
+    public CustomerDepositPage clickDepositButton() {
         depositButton().click();
         return new CustomerDepositPage(driver);
     }
 
-    public AbstractBasePage clickWithdrawButton() {
+    public CustomerWithdrawlPage clickWithdrawButton() {
         withdrawButton().click();
         return new CustomerWithdrawlPage(driver);
     }
 
-    public AbstractBasePage clickLogoutButton() {
+    public CustomerLoginPage clickLogoutButton() {
         logoutButton().click();
         return new CustomerLoginPage(driver);
     }
@@ -53,8 +52,9 @@ public class CustomerPage extends CustomerPageElements {
         return accountNumber().getText();
     }
 
-    public String getAccountBalance() {
-        return accountBalance().getText();
+    public int getAccountBalance() {
+        return Integer.parseInt(accountBalance().getText());
+
     }
 
     public String getAccountCurrency() {
@@ -62,7 +62,7 @@ public class CustomerPage extends CustomerPageElements {
     }
 
     public CustomerPage selectAccount(String accString) {
-        accountSelectField().selectByVisibleText(accString);
+        new Select(accountSelectField()).selectByVisibleText(accString);
         return this;
     }
 }
