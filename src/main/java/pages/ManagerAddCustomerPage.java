@@ -23,13 +23,13 @@ public class ManagerAddCustomerPage extends AbstractBasePage {
         return new HeaderElements(driver);
     }
 
-    public ManagerAddCustomerPage enterRegistrationCredits(String firstName, String lastName, String postCode) {
+    public ManageLoginPage enterRegistrationCredits(String firstName, String lastName, String postCode) {
         getFirstNameField().sendKeys(firstName);
         getLastName().sendKeys(lastName);
         getPostCode().sendKeys(postCode);
         addCustomerSubmit().click();
         alertMessageClose();
-        return this;
+        return new ManageLoginPage(driver);
     }
 
     public ManageLoginPage alertMessageClose(){
