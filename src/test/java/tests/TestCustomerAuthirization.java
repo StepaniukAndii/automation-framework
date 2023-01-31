@@ -23,13 +23,14 @@ public class TestCustomerAuthirization extends TestInit {
     public void testAuthirization() {
         log.info("--------------------go to Customer Login Page--------------------");
         customerLoginPage.open();
-        log.info("--------------------check user--------------------");
-        //
+
         log.info(String.format("--------------------select user %s--------------------", USER));
         customerLoginPage.selectUser(USER);
         Assert.assertTrue(customerLoginPage.loginBtn().isDisplayed(), "Login button is not displayed");
+
         log.info("--------------------login--------------------");
         customerPage = customerLoginPage.clickLoginBtn();
+        
         log.info("--------------------verify login--------------------");
         Assert.assertEquals(customerPage.getName(), USER, "The login does not match"); 
     }
