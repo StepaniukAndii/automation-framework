@@ -21,12 +21,12 @@ public class TestCustomerAuthirization extends TestInit {
     @BeforeTest
     public void setup() {
         customerLoginPage = new CustomerLoginPage(driver);
-        createCustomer(USER_FIRST_NAME, USER_LAST_NAME, "E1 0AA", "Pound");
+        customerLoginPage.createCustomer(USER_FIRST_NAME, USER_LAST_NAME, "E1 0AA", "Pound");
     }
     @AfterTest
     public void teardown()
     {
-        deleteCustomer(USER_FIRST_NAME);
+        customerLoginPage.deleteCustomer(USER_FIRST_NAME);
     }
     @Test
     public void testAuthirization() {
