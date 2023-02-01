@@ -15,32 +15,32 @@ public class TestCustomerAuthirization extends TestInit {
 
     CustomerLoginPage customerLoginPage;
     CustomerPage customerPage;
-    String USER_FIRST_NAME = "Jack";
-    String USER_LAST_NAME = "the Ripper";
-    String USER_NAME = USER_FIRST_NAME + USER_LAST_NAME;
+    private final static String first_name = "Jack";
+    private final static String last_name = "the Ripper";
+    private final static String user_name = first_name + last_name;
     @BeforeTest
     public void setup() {
         customerLoginPage = new CustomerLoginPage(driver);
-        createCustomer(USER_FIRST_NAME, USER_LAST_NAME, "E1 0AA", "Pound");
+        createCustomer(first_name, last_name, "E1 0AA", "Pound");
     }
     @AfterTest
     public void teardown()
     {
-        deleteCustomer(USER_FIRST_NAME);
+        deleteCustomer(first_name);
     }
     @Test
     public void testAuthirization() {
         log.info("--------------------go to Customer Login Page--------------------");
         customerLoginPage.open();
 
-        log.info(String.format("--------------------select user %s--------------------", USER_NAME));
-        customerLoginPage.selectUser(USER_NAME);
+        log.info(String.format("--------------------select user %s--------------------", user_name));
+        customerLoginPage.selectUser(user_name);
         Assert.assertTrue(customerLoginPage.loginBtn().isDisplayed(), "Login button is not displayed");
 
         log.info("--------------------login--------------------");
         customerPage = customerLoginPage.clickLoginBtn();
         
         log.info("--------------------verify login--------------------");
-        Assert.assertEquals(customerPage.getName(), USER_NAME, "The login does not match"); 
+        Assert.assertEquals(customerPage.getName(), user_name, "The login does not match"); 
     }
 }
