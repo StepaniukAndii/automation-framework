@@ -55,7 +55,7 @@ public abstract class CustomerPageElements extends AbstractBasePage {
         return waitClickableElementByXpath(ACC_CUR);
     }
 
-    public Select accountSelectField() {
-        return (Select) waitClickableElementByXpath(ACC_SEL);
+    public WebElement accountSelectField() {
+        return waitClickableElementByXpath(ACC_SEL);
     }
 }

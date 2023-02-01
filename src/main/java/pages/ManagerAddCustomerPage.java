@@ -2,9 +2,10 @@ package pages;
 
 import basePages.AbstractBasePage;
 import elements.HeaderElements;
+import lombok.extern.log4j.Log4j;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-
+@Log4j
 public class ManagerAddCustomerPage extends AbstractBasePage {
 
 
@@ -22,12 +23,20 @@ public class ManagerAddCustomerPage extends AbstractBasePage {
         return new HeaderElements(driver);
     }
 
-    public ManagerAddCustomerPage enterRegistrationCredits(String firstName, String lastName, String postCode) {
+    public ManageLoginPage enterRegistrationCredits(String firstName, String lastName, String postCode) {
         getFirstNameField().sendKeys(firstName);
         getLastName().sendKeys(lastName);
         getPostCode().sendKeys(postCode);
         addCustomerSubmit().click();
-        return this;
+        alertMessageClose();
+        return new ManageLoginPage(driver);
+    }
+
+    public ManageLoginPage alertMessageClose(){
+        log.info("---------------------Close alert message---------------------");
+        driver.switchTo().alert().accept();
+        return new ManageLoginPage(driver);
+
     }
 
     public WebElement getFirstNameField() {
