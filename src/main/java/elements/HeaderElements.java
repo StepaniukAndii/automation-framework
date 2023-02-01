@@ -25,4 +25,8 @@ public class HeaderElements extends AbstractBasePage {
     public WebElement getHeader() {
         return waitVisibleOfElement(XYZ_BANK);
     }
+
+    public void clickHomeBtn(){
+        getHomeBtn().click();
+    }
 }

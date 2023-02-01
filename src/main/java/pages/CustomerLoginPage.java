@@ -47,4 +47,6 @@ public class CustomerLoginPage extends AbstractBasePage {
         loginBtn().click();
         return new CustomerPage(driver);
     }
+
+
 }

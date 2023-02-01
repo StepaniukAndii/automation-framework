@@ -13,7 +13,7 @@ public class CustomerWithdrawlPage extends AbstractBasePage {
 
     @Override
     public CustomerWithdrawlPage open() {
-        openUrl(env + "account");
+        openUrl(env + "customer");
         return this;
     }
 
@@ -32,7 +32,7 @@ public class CustomerWithdrawlPage extends AbstractBasePage {
     }
 
     public WebElement inputWithdrawl() {
-        return waitPresenceOfElementLocated(INPUT_WITHDRAWL);
+        return waitClickableElementByXpath(INPUT_WITHDRAWL);
     }
 
     public WebElement buttonWithdrawl() {
@@ -44,13 +44,13 @@ public class CustomerWithdrawlPage extends AbstractBasePage {
     }
 
     // HELP METHODS
-    public CustomerWithdrawlPage enterInputWithdrawl(String text) {
-        sendText(inputWithdrawl(), text);
+    public CustomerWithdrawlPage enterInputWithdrawl(int sum) {
+        inputWithdrawl().sendKeys(String.valueOf(sum));
         return this;
     }
 
-    public CustomerWithdrawlPage clickButtonWithdrawl() {
+    public CustomerPage clickButtonWithdrawl() {
         buttonWithdrawl().click();
-        return this;
+        return new CustomerPage(driver);
     }
 }
