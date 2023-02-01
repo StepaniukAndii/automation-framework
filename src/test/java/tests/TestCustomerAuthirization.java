@@ -3,6 +3,7 @@ package tests;
 
 import lombok.extern.log4j.Log4j;
 import org.testng.Assert;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
@@ -18,6 +19,12 @@ public class TestCustomerAuthirization extends TestInit {
     @BeforeTest
     public void setup() {
         customerLoginPage = new CustomerLoginPage(driver);
+
+    }
+    @AfterTest
+    public void teardown()
+    {
+        
     }
     @Test
     public void testAuthirization() {
