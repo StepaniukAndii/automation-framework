@@ -13,8 +13,8 @@ import pages.CustomerPage;
 @Log4j
 public class TestCustomerAuthirization extends TestInit {
 
-    CustomerLoginPage customerLoginPage;
-    CustomerPage customerPage;
+    private CustomerLoginPage customerLoginPage;
+    private CustomerPage customerPage;
     private final static String first_name = "Jack";
     private final static String last_name = "the Ripper";
     private final static String user_name = first_name + last_name;
