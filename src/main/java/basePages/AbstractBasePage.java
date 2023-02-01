@@ -43,8 +43,7 @@ public abstract class AbstractBasePage {
         return wait.until(ExpectedConditions.visibilityOf(webElement));
     }
 
-
-    protected WebElement waitVisibleOfElement(String locator) {
+   protected WebElement waitVisibleOfElement(String locator) {
         return wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(locator)));
     }
 

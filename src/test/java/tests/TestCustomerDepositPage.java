@@ -8,6 +8,10 @@ import pages.CustomerPage;
 
 public class TestCustomerDepositPage extends TestInit{
 
+    String message = "Deposit Successful";
+    int depositSum = 100;
+    int balance;
+
     @DataProvider(name = "CustomerName")
     public Object[][] getDataFromDataprovider() {
         return new Object[][]
@@ -32,8 +36,7 @@ public class TestCustomerDepositPage extends TestInit{
 
     @Test(dataProvider = "CustomerName")
     public void checkTheFunctionalityOfMakingDeposit(String customer, String account){
-        String message = "Deposit Successful";
-        int depositSum = 100;
+
 
         CustomerDepositPage customerDepositPage = new CustomerDepositPage(driver);
         customerDepositPage
@@ -48,14 +51,13 @@ public class TestCustomerDepositPage extends TestInit{
 
     @Test(dataProvider = "CustomerName")
     public void checkCustomerPage(String customer, String account){
-        int depositSum = 100;
 
        CustomerPage customerPage = new CustomerPage(driver);
        customerPage
                .openByUser(customer)
                .selectAccount(account);
 
-        int balance = customerPage.getAccountBalance()+depositSum;
+        balance = customerPage.getAccountBalance()+depositSum;
 
         customerPage
                .clickDepositButton()

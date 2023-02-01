@@ -1,6 +1,7 @@
 package pages;
 
 import elements.CustomerPageElements;
+import lombok.SneakyThrows;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
 
@@ -34,8 +35,10 @@ public class CustomerPage extends CustomerPageElements {
         return new CustomerDepositPage(driver);
     }
 
+    @SneakyThrows
     public CustomerWithdrawlPage clickWithdrawButton() {
         withdrawButton().click();
+        Thread.sleep(500);
         return new CustomerWithdrawlPage(driver);
     }
 

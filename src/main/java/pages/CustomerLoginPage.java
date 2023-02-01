@@ -47,4 +47,6 @@ public class CustomerLoginPage extends HelperTest {
         loginBtn().click();
         return new CustomerPage(driver);
     }
+
+
 }

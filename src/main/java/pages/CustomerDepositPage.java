@@ -63,9 +63,9 @@ public class CustomerDepositPage extends AbstractBasePage {
 
     }
 
-    public CustomerDepositPage clickDepositBtn() {
+    public CustomerPage clickDepositBtn() {
         depositBtn().click();
-        return this;
+        return new CustomerPage(driver);
     }
 
 
