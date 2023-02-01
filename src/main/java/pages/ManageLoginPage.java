@@ -10,7 +10,7 @@ public class ManageLoginPage extends AbstractBasePage {
 
     public HeaderElements headerElements;
 
-    protected ManageLoginPage(WebDriver driver) {
+    public ManageLoginPage(WebDriver driver) {
         super(driver);
     }
 
@@ -20,6 +20,15 @@ public class ManageLoginPage extends AbstractBasePage {
         headerElements = new HeaderElements(driver);
         return this;
     }
+
+    public HeaderElements getHeaderElements() {
+        if (headerElements == null) {
+            return headerElements = new HeaderElements(driver);
+        } else {
+            return headerElements;
+        }
+    }
+
 
     public WebElement getAddCustomerBtn() {
         return waitClickableElementByXpath("//button[@ng-click='addCust()']");
@@ -47,7 +56,8 @@ public class ManageLoginPage extends AbstractBasePage {
 
     @Step("Click Home Button Page")
     public HomePage clickHomeBtn() {
-        headerElements.getHomeBtn().click();
+        getHeaderElements();
+        headerElements.clickHomeBtn();
         return new HomePage(driver);
     }
 
