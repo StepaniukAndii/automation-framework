@@ -12,23 +12,32 @@ public class HelperTest extends AbstractBasePage {
         super(driver);
     }
 
-    public HomePage createCustomer(String firstName, String lastName, String postCode, String currency) {
+    public HomePage createCustomerAndAccount(Customer customer, Currency currency) {
+        String currencyValue;
+        if (Currency.DOLLAR == currency) {
+            currencyValue = "Dollar";
+        } else if (currency == Currency.POUND) {
+            currencyValue = "Pound";
+        } else {
+            currencyValue = "Rupee";
+        }
+
         ManagerAddCustomerPage managerAddCustomerPage = new ManagerAddCustomerPage(driver);
         managerAddCustomerPage
                 .open()
-                .enterRegistrationCredits(firstName, lastName, postCode)
+                .enterRegistrationCredits(customer.getFirstName(), customer.getLastName(), customer.getPostCode())
                 .clickOpenAccountBtn()
-                .openAccount(firstName + " " + lastName, currency)
+                .openAccount(customer.getFirstName()+ " " + customer.getLastName(), currencyValue)
                 .clickHomeBtn();
         return new HomePage(driver);
 
     }
 
-    public HomePage deleteCustomer(String name) {
+    public HomePage deleteCustomer(Customer customer) {
         ManagerCustomersPage managerCustomersPage = new ManagerCustomersPage(driver);
         managerCustomersPage
                 .open()
-                .search(name)
+                .search(customer.getFirstName())
                 .clickDeleteBtn();
 
         return new HomePage(driver);
