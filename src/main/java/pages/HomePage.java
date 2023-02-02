@@ -1,6 +1,7 @@
 package pages;
 
 import basePages.AbstractBasePage;
+import lombok.SneakyThrows;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
@@ -16,7 +17,9 @@ public class HomePage extends AbstractBasePage {
         return this;
     }
 
+    @SneakyThrows
     public WebElement getCustomerLoginBtn() {
+        Thread.sleep(500);
         return waitClickableElementByXpath("//button[contains(text(),'Customer Login')]");
     }
 
