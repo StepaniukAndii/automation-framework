@@ -38,7 +38,7 @@ public class TestDepositFunctionality extends TestInit {
         log.info("====================GO TO CUSTOMER DEPOSIT PAGE====================");
         customerDepositPage = new CustomerDepositPage(driver);
         customerDepositPage
-                .openByUser(customer.getFirstName() + " " + customer.getLastName());
+                .openByUser(customer.getFullName());
 
         log.info("====================ASSERT ELEMENTS ON CUSTOMER DEPOSIT PAGE====================");
         Assert.assertTrue(customerDepositPage.getAmountLabelDeposit().isDisplayed(), "!ELEMENT IS FAIL!");
@@ -57,7 +57,7 @@ public class TestDepositFunctionality extends TestInit {
         customerDepositPage = new CustomerDepositPage(driver);
         log.info("====================DEPOSIT MONEY INTO THE ACCOUNT====================");
         customerDepositPage
-                .openByUser(customer.getFirstName() + " " + customer.getLastName())
+                .openByUser(customer.getFullName())
                 .setAmount(DEPOSIT_SUM)
                 .clickDepositBtn();
 
@@ -76,7 +76,7 @@ public class TestDepositFunctionality extends TestInit {
         log.info("====================GO TO CUSTOMER PAGE====================");
         customerPage = new CustomerPage(driver);
         customerPage
-                .openByUser(customer.getFirstName() + " " + customer.getLastName());
+                .openByUser(customer.getFullName());
 
         log.info("====================CHECK EXPECTED DEPOSIT BALANCE====================");
         balance = customerPage.getAccountBalance() + DEPOSIT_SUM;
