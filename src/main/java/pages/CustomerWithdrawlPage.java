@@ -13,7 +13,7 @@ public class CustomerWithdrawlPage extends AbstractBasePage {
 
     @Override
     public CustomerWithdrawlPage open() {
-        openUrl(env + "customer");
+        openUrl(env + "account");
         return this;
     }
 

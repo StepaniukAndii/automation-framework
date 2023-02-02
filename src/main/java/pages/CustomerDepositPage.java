@@ -15,7 +15,7 @@ public class CustomerDepositPage extends AbstractBasePage {
 
     @Override
     public CustomerDepositPage open() {
-        openUrl(env + "customer");
+        openUrl(env + "account");
         return this;
     }
 

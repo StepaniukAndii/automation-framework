@@ -1,6 +1,8 @@
 package tests;
 
 
+import healper.Currency;
+import healper.Customer;
 import lombok.extern.log4j.Log4j;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
@@ -15,32 +17,34 @@ public class TestCustomerAuthirization extends TestInit {
 
     private CustomerLoginPage customerLoginPage;
     private CustomerPage customerPage;
-    private final static String USER_FIRST_NAME = "Jack";
-    private final static String USER_LAST_NAME = "the Ripper";
-    private final static String USER_NAME = USER_FIRST_NAME + " " + USER_LAST_NAME;
+    private Customer customer;
+
     @BeforeTest
     public void setup() {
         customerLoginPage = new CustomerLoginPage(driver);
-        customerLoginPage.createCustomer(USER_FIRST_NAME, USER_LAST_NAME, "E1 0AA", "Pound");
+        customer = Customer.builder().build();
+
+        customerLoginPage.createCustomerAndAccount(customer, Currency.POUND);
     }
+
     @AfterTest
-    public void teardown()
-    {
-        customerLoginPage.deleteCustomer(USER_FIRST_NAME);
+    public void teardown() {
+        customerLoginPage.deleteCustomer(customer);
     }
+
     @Test
     public void testAuthirization() {
         log.info("--------------------go to Customer Login Page--------------------");
         customerLoginPage.open();
 
-        log.info(String.format("--------------------select user %s--------------------", USER_NAME));
-        customerLoginPage.selectUser(USER_NAME);
+        log.info(String.format("--------------------select user %s--------------------", customer.getFirstName()));
+        customerLoginPage.selectUser(customer.getFirstName());
         Assert.assertTrue(customerLoginPage.loginBtn().isDisplayed(), "Login button is not displayed");
 
         log.info("--------------------login--------------------");
         customerPage = customerLoginPage.clickLoginBtn();
-        
+
         log.info("--------------------verify login--------------------");
-        Assert.assertEquals(customerPage.getName(), USER_NAME, "The login does not match"); 
+        Assert.assertEquals(customerPage.getName(), customer.getFirstName(), "The login does not match");
     }
 }

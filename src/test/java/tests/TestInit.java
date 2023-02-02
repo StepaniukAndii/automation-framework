@@ -32,11 +32,11 @@ public abstract class TestInit {
         driver = DriverHelper.getDriver();
         log.info("---------- Finished set up driver --------------");
     }
-//    @AfterMethod
-//    public void quitDriver() {
-//        driver.quit();
-//        log.info("----------- Driver quit -----------");
-//    }
+    @AfterMethod
+    public void quitDriver() {
+        driver.quit();
+        log.info("----------- Driver quit -----------");
+    }
 
     public WebDriver getDriver() {
         return driver;
