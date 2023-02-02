@@ -17,7 +17,7 @@ public class TestCustomerAuthirization extends TestInit {
     private CustomerPage customerPage;
     private final static String USER_FIRST_NAME = "Jack";
     private final static String USER_LAST_NAME = "the Ripper";
-    private final static String USER_NAME = USER_FIRST_NAME + " "  + USER_LAST_NAME;
+    private final static String USER_NAME = USER_FIRST_NAME + " " + USER_LAST_NAME;
     @BeforeTest
     public void setup() {
         customerLoginPage = new CustomerLoginPage(driver);
