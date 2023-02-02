@@ -34,10 +34,14 @@ public class CustomerTransactions extends AbstractBasePage {
         return waitClickableElementByXpath("//button[@ng-show='right']");
     }
 
+    public WebElement tablet(){
+        return waitVisibleOfElement("//td");
+    }
+
     @Step("Click on 'Back' Btn")
-    public CustomerTransactions clickBackBtn() {
+    public CustomerPage clickBackBtn() {
         backBtn().click();
-        return this;
+        return new CustomerPage(driver);
     }
 
     @Step("Click on 'Reset' Btn")
