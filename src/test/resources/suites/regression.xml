@@ -9,7 +9,6 @@
     <test name="Regression test">
         <classes>
             <class name="tests.TestDepositFunctionality"/>
-
         </classes>
     </test>
 </suite>
