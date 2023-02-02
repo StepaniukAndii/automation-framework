@@ -24,10 +24,15 @@ public class ManagerAddCustomerPage extends AbstractBasePage {
     }
 
     public ManageLoginPage enterRegistrationCredits(String firstName, String lastName, String postCode) {
+        log.info("--------------------Enter a First name--------------------");
         getFirstNameField().sendKeys(firstName);
+        log.info("--------------------Enter a Last name--------------------");
         getLastName().sendKeys(lastName);
+        log.info("--------------------Enter a Post code--------------------");
         getPostCode().sendKeys(postCode);
+        log.info("--------------------Click button--------------------");
         addCustomerSubmit().click();
+        log.info("--------------------Alert message add new customer--------------------");
         alertMessageClose();
         return new ManageLoginPage(driver);
     }
