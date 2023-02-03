@@ -27,7 +27,7 @@ public class HelperTest extends AbstractBasePage {
                 .open()
                 .enterRegistrationCredits(customer.getFirstName(), customer.getLastName(), customer.getPostCode())
                 .clickOpenAccountBtn()
-                .openAccount(customer.getFirstName()+ " " + customer.getLastName(), currencyValue)
+                .openAccount(customer.getFullName(), currencyValue)
                 .clickHomeBtn();
         return new HomePage(driver);
 

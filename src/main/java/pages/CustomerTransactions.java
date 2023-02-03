@@ -35,7 +35,7 @@ public class CustomerTransactions extends AbstractBasePage {
     }
 
     public WebElement tablet(){
-        return waitVisibleOfElement("//td");
+        return waitPresenceOfElementLocated("//td[@class = 'ng-binding']");
     }
 
     @Step("Click on 'Back' Btn")

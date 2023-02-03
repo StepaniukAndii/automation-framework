@@ -20,12 +20,14 @@ public class TestResetTransaction extends TestInit {
     private CustomerTransactions customerTransactions;
     Customer customer = Customer.builder().build();
 
+
     @BeforeMethod
-    private void beforeMethod() {
+    private void createCustomerNAccount() {
         helperTest = new HelperTest(driver);
+        helperTest.createCustomerAndAccount(customer, Currency.DOLLAR);
     }
 
-//    @AfterMethod
+    @AfterMethod
     private void deleteCustomer() {
         helperTest.deleteCustomer(customer);
     }
@@ -33,7 +35,6 @@ public class TestResetTransaction extends TestInit {
 
     @Test
     public void checkResetTrans() {
-        helperTest.createCustomerAndAccount(customer, Currency.DOLLAR);
         customerPage = new CustomerPage(driver);
         customerDepositPage = new CustomerDepositPage(driver);
         customerTransactions = new CustomerTransactions(driver);
