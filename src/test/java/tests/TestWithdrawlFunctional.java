@@ -28,7 +28,7 @@ public class TestWithdrawlFunctional extends TestInit {
     }
 
     @Test
-    public void checkWithdrawlFunctionality() {
+    public void checkWithdrawFunctionality() {
         helperTest
                 .createCustomerAndAccount(customer, Currency.DOLLAR)
                 .clickCustomerLoginBtn()

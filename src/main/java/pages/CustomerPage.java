@@ -25,8 +25,10 @@ public class CustomerPage extends CustomerPageElements {
         return this;
     }
 
+    @SneakyThrows
     public CustomerTransactions clickTransactionButton() {
         transactionButton().click();
+        Thread.sleep(1000);
         return new CustomerTransactions(driver);
     }
 
