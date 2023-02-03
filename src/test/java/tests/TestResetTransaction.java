@@ -19,6 +19,7 @@ public class TestResetTransaction extends TestInit {
     private CustomerDepositPage customerDepositPage;
     private CustomerTransactions customerTransactions;
     Customer customer = Customer.builder().build();
+    private String string = "https://www.globalsqa.com/angularJs-protractor/BankingProject/#/listTx";
 
 
     @BeforeMethod
@@ -43,10 +44,22 @@ public class TestResetTransaction extends TestInit {
                 .openByUser(customer.getFullName())
                 .setAmount(400)
                 .clickDepositBtn()
+                .clickDepositButton()
+                .setAmount(100)
+                .clickDepositBtn()
+                .clickDepositButton()
+                .setAmount(500)
+                .clickDepositBtn()
+                .clickDepositButton()
+                .setAmount(100)
+                .clickDepositBtn()
+                .clickDepositButton()
+                .setAmount(500)
+                .clickDepositBtn()
                 .clickTransactionButton();
                 //.clickResetBtn();
 
-        Assert.assertTrue(customerTransactions.tablet().isEnabled());
+        Assert.assertEquals(getUrl("listTx"), string);
 
     }
 

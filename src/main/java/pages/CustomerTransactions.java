@@ -35,7 +35,7 @@ public class CustomerTransactions extends AbstractBasePage {
     }
 
     public WebElement tablet(){
-        return waitPresenceOfElementLocated("//td[@class = 'ng-binding']");
+        return waitPresenceOfElementLocated("//tr[@id='anchor0']/td[@class][2]");
     }
 
     @Step("Click on 'Back' Btn")
