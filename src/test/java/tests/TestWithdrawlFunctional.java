@@ -19,14 +19,13 @@ public class TestWithdrawlFunctional extends TestInit {
     private CustomerPage customerPage;
     private CustomerWithdrawlPage customerWithdrawlPage;
     private HelperTest helperTest;
-
     private final static int DEPOSIT_SUM = 400;
     private final static int WITHDRAW_SUM = 200;
     private int balance;
     Customer customer = Customer.builder().build();
 
     @BeforeMethod
-    private void createCustomerNAccount() {
+    private void createCustomerAccount() {
         helperTest = new HelperTest(driver);
         helperTest.createCustomerAndAccount(customer, Currency.DOLLAR);
     }
@@ -54,6 +53,5 @@ public class TestWithdrawlFunctional extends TestInit {
                 .clickButtonWithdrawl();
 
         Assert.assertEquals(customerPage.getAccountBalance(), balance);
-
     }
 }
