@@ -34,17 +34,12 @@ public class TestCustomerAuthirization extends TestInit {
 
     @Test
     public void testAuthirization() {
-        log.info("--------------------go to Customer Login Page--------------------");
-        customerLoginPage.open();
-
-        log.info(String.format("--------------------select user %s--------------------", customer.getFirstName()));
-        customerLoginPage.selectUser(customer.getFirstName());
+        customerLoginPage.open()
+            .selectUser(customer.getFirstName());
         Assert.assertTrue(customerLoginPage.loginBtn().isDisplayed(), "Login button is not displayed");
 
-        log.info("--------------------login--------------------");
         customerPage = customerLoginPage.clickLoginBtn();
 
-        log.info("--------------------verify login--------------------");
         Assert.assertEquals(customerPage.getName(), customer.getFirstName(), "The login does not match");
     }
 }
