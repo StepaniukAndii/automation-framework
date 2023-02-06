@@ -6,6 +6,7 @@ import healper.HelperTest;
 import lombok.extern.log4j.Log4j;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pages.CustomerDepositPage;
 import pages.CustomerPage;
@@ -23,18 +24,22 @@ public class TestDepositFunctionality extends TestInit {
     private CustomerPage customerPage;
     private Customer customer;
 
+    @BeforeMethod
+    private void createNewCustomerAndCurrency() {
+        log.info("====================CREATE NEW CUSTOMER====================");
+        helperTest = new HelperTest(driver);
+        customer = Customer.builder().build();
+        helperTest.createCustomerAndAccount(customer, Currency.DOLLAR);
+    }
+
     @AfterMethod
     private void deleteCustomer() {
+        log.info("====================DELETE TEST CUSTOMER====================");
         helperTest.deleteCustomer(customer);
     }
 
     @Test
     public void testDepositPage() {
-        log.info("====================CREATE NEW CUSTOMER====================");
-        helperTest = new HelperTest(driver);
-        customer = Customer.builder().build();
-        helperTest.createCustomerAndAccount(customer, Currency.DOLLAR);
-
         log.info("====================GO TO CUSTOMER DEPOSIT PAGE====================");
         customerDepositPage = new CustomerDepositPage(driver);
         customerDepositPage
@@ -48,11 +53,6 @@ public class TestDepositFunctionality extends TestInit {
 
     @Test
     public void testDepositFunctional() {
-        log.info("====================CREATE NEW CUSTOMER====================");
-        helperTest = new HelperTest(driver);
-        customer = Customer.builder().build();
-        helperTest.createCustomerAndAccount(customer, Currency.POUND);
-
         log.info("====================GO TO CUSTOMER DEPOSIT PAGE====================");
         customerDepositPage = new CustomerDepositPage(driver);
         log.info("====================DEPOSIT MONEY INTO THE ACCOUNT====================");
@@ -68,11 +68,6 @@ public class TestDepositFunctionality extends TestInit {
 
     @Test
     public void testDepositFunctionalBalance() {
-        log.info("====================CREATE NEW CUSTOMER====================");
-        helperTest = new HelperTest(driver);
-        customer = Customer.builder().build();
-        helperTest.createCustomerAndAccount(customer, Currency.RUPEE);
-
         log.info("====================GO TO CUSTOMER PAGE====================");
         customerPage = new CustomerPage(driver);
         customerPage
