@@ -31,7 +31,7 @@ public class TestCustomerAuthirization extends TestInit {
     public void teardown() {
         customerLoginPage.deleteCustomer(customer);
     }
-
+    //
     @Test
     public void testAuthirization() {
         log.info("--------------------go to Customer Login Page--------------------");
